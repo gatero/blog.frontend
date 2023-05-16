@@ -1,0 +1,12 @@
+@mixin inspect($type: 'all', $color: #F00) {
+  $values: 1px solid $color;
+  @if $type == 'this' {
+    & { outline: $values; }
+  } @else if $type == 'children' {
+    & > * { outline: $values; }
+  } @else if $type == 'content' {
+    & * { outline: $values; }
+  } @else if $type == 'all' {
+    &, & * { outline: $values; }
+  }
+}

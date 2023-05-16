@@ -1,0 +1,47 @@
+/**
+ * @author Daniel Ortega <hola@daniel-ortega.mx>
+ * @type mixin
+ * @name watch
+ * @param string $screen
+ * @param value $orientation
+ * @return @media
+ *
+ * Takes the $screen and returns the associated media query
+ **/
+@mixin watch($screen, $orientation: null) {
+  $rule: screen and #{$screen};
+
+  @if $screen == 'screen-xs' {
+    $rule: screen and #{$screen-xs};
+  } @else if $screen == 'screen-sm' {
+    $rule: screen and #{$screen-sm};
+  } @else if $screen == 'screen-md' {
+    $rule: screen and #{$screen-md};
+  } @else if $screen == 'screen-lg' {
+    $rule: screen and #{$screen-lg};
+  }
+
+  @if $orientation != null {
+    $rule: $rule +' '+ and (orientation: #{$orientation});
+  }
+
+
+  @media #{$rule} { @content; }
+}
+
+/**
+ * @author Daniel Ortega <hola@daniel-ortega.mx>
+ * @type mixin
+ * @name watchMany
+ * @param argslist $screens
+ * @return Array<@media>
+ *
+ * Takes a list of screens and apply the same content
+ * to many associated media queries
+ *
+ **/
+@mixin watchMany($screens, $orientation: null) {
+  @each $screen in $screens {
+    @include watch($screen, $orientation) { @content; }
+  }
+}

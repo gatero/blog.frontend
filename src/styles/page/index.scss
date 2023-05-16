@@ -1,0 +1,66 @@
+.sign-in {
+  &,
+  & > .row,
+  & > .row > .col {
+    height: 100vh;
+    min-height: 100vh;
+  }
+
+  &-greeting,
+  &-auth {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-height: inherit;
+    padding: 15px;
+  }
+
+  &-greeting {
+    padding: 0 0 0 150px;
+    color: $gray-700;
+  }
+
+  &-auth {
+    justify-content: center;
+
+    .card {
+      width: 450px;
+      border: none;
+    }
+
+    .card-title {
+      color: $gray-700;
+    }
+  }
+
+  &-with-social {
+    @extend .list-unstyled, .text-center;
+
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+
+    li {
+      width: 40px;
+      height: 40px;
+    }
+
+    .btn {
+      border: 1px solid $gray-500;
+      background-color: transparent;
+
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      &:hover {
+        box-shadow: 4px 4px 8px $gray-400;
+        background-color: transparent;
+      }
+    }
+  }
+
+  &-remember-me {
+    margin-top: 20px;
+  }
+}

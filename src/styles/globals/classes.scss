@@ -1,0 +1,47 @@
+html,
+body,
+#__next {
+  height: 100%;
+  min-height: 100%;
+  color: $gray-400;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 1px $gray-800;
+}
+
+.text-green {
+  color: $green;
+}
+
+.title-line-through {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  color: $gray-800;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  &::before,
+  &::after {
+    content: '';
+    border-top: 0.1rem double $gray-500;
+    align-self: center;
+    opacity: 0.5;
+  }
+}
+
+hr {
+  height: 1px;
+  background-color: $gray-500;
+  border: none;
+  opacity: 0.5;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+}

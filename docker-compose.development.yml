@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  site:
+    container_name: $SITE_CONTAINER_NAME
+    command: bash -c 'npm i && npm run dev'
+    image: $SITE_IMAGE
+    ports:
+      - $SITE_PORT:$SITE_PORT
+    volumes:
+      - .:$SITE_VOLUME
+    working_dir: $SITE_WORKING_DIR
+    environment:
+      VIRTUAL_HOST: $SITE_VIRTUAL_HOST
+    env_file:
+      - .env
+networks:
+  default:
+    name: $NETWORK
