@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap';
 import Input from '../../form/input';
 import { SignInSchema } from './sign-in.schema';
 
+const { env } = process;
+
 export type TSignInProps = {
   signWithEmailAndPassword: Function;
 };
@@ -19,6 +21,8 @@ function SignInForm(props: any) {
     onSubmit: props.signWithEmailAndPassword,
     validationSchema: SignInSchema,
   };
+
+  console.log('aaa - env: ', env);
 
   return (
     <Formik {...formikOptions}>

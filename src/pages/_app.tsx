@@ -12,6 +12,7 @@ import AuthProvider from '@/firebase/firebase.context';
 import '@/styles/main.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
+  console.log('aaa - Component: ', Component);
   return (
     <AuthProvider>
       <Component {...pageProps} />

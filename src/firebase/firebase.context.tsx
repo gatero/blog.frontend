@@ -12,7 +12,7 @@ const AuthContext = createContext<TUseAuth>({
   signInWithEmailAndPassword: () => false,
   signUpWithEmailAndPassword: () => false,
   signInWithSocial: () => false,
-  passwordResetEmail: () => false,
+  sendPasswordResetEmail: () => false,
   signOut: () => false,
 });
 
