@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import firebase from '.';
 import {
   TAuthUser,
-  TRecoverPasswordFormData,
+  TResetPasswordFormData,
   TSignInWithEmailAndPasswordFormData,
   TSignInWithSocialFormData,
   TSignUpWithEmailAndPasswordFormData,
@@ -25,7 +25,7 @@ export type TUseAuth = {
     formData: TSignUpWithEmailAndPasswordFormData,
   ) => void;
   signInWithSocial: (formData: TSignInWithSocialFormData) => void;
-  sendPasswordResetEmail: (formData: TRecoverPasswordFormData) => void;
+  sendPasswordResetEmail: (formData: TResetPasswordFormData) => void;
   signOut: () => void;
 };
 

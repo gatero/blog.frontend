@@ -1,30 +1,30 @@
 import Input from '@/components/form/input';
-import { TRecoverPasswordFormData } from '@/firebase/firebase.auth';
+import { TResetPasswordFormData } from '@/firebase/firebase.auth';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
-import { RecoverPasswordSchema } from './recover-password.schema';
+import { ResetPasswordSchema } from './reset-password.schema';
 
-export type TRecoverPasswordProps = {
-  handleSubmit: (formData: TRecoverPasswordFormData) => any;
+export type TResetPasswordProps = {
+  handleSubmit: (formData: TResetPasswordFormData) => any;
 };
 
-const defaultValues: TRecoverPasswordProps = {
+const defaultValues: TResetPasswordProps = {
   handleSubmit: () => false,
 };
 
 const formikOptions = (
-  handleSubmit: (formData: TRecoverPasswordFormData) => void,
+  handleSubmit: (formData: TResetPasswordFormData) => void,
 ) => ({
   initialValues: {
     email: '',
   },
   onSubmit: handleSubmit,
-  validationSchema: RecoverPasswordSchema,
+  validationSchema: ResetPasswordSchema,
 });
 
-const RecoverPasswordForm = (
-  props: TRecoverPasswordProps = defaultValues,
+const ResetPasswordForm = (
+  props: TResetPasswordProps = defaultValues,
 ): React.ReactElement => (
   <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
@@ -44,4 +44,4 @@ const RecoverPasswordForm = (
   </Formik>
 );
 
-export default RecoverPasswordForm;
+export default ResetPasswordForm;

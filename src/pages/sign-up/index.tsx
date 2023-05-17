@@ -63,7 +63,7 @@ function SignUp() {
 
               <ul className="my-3 list-unstyled text-end">
                 <li>
-                  <Link href="/recover-password">recuperar contraseña</Link>
+                  <Link href="/reset-password">recuperar contraseña</Link>
                 </li>
               </ul>
 
