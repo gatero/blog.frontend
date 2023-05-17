@@ -23,7 +23,9 @@ const formikOptions = (
   validationSchema: RecoverPasswordSchema,
 });
 
-const RecoverPasswordForm = (props: TRecoverPasswordProps = defaultValues) => (
+const RecoverPasswordForm = (
+  props: TRecoverPasswordProps = defaultValues,
+): React.ReactElement => (
   <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
       <Input

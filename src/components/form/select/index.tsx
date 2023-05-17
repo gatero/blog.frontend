@@ -29,7 +29,7 @@ const defaultValues: TSelectProps = {
   options: [],
 };
 
-const Select = (props: TSelectProps = defaultValues) => (
+const Select = (props: TSelectProps = defaultValues): React.ReactElement => (
   <div className="select mb-3">
     <InputGroup
       className={classNames(props.className, {
