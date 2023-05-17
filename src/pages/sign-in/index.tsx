@@ -5,13 +5,8 @@ import {
   TSignInWithSocialFormData,
 } from '@/firebase/firebase.auth';
 import { useAuth } from '@/firebase/firebase.hook';
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-
-const inter = Inter({ subsets: ['latin'] });
-
-type TSignInProps = {};
 
 export default function SignIn() {
   const { signInWithEmailAndPassword, signInWithSocial } = useAuth();
@@ -82,10 +77,4 @@ export default function SignIn() {
       </Row>
     </Container>
   );
-}
-
-export function getStaticProps() {
-  return {
-    props: {},
-  };
 }

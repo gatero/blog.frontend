@@ -1,13 +1,11 @@
-import { Inter } from 'next/font/google';
-
-import './styles/main.scss';
-
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import { Inter } from 'next/font/google';
+config.autoAddCss = false;
 
 import AuthProvider from '@/firebase/firebase.context';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
-config.autoAddCss = false;
+import './page.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
 

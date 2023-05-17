@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext } from 'react';
 import { TUseAuth, useAuth } from './firebase.hook';
 
