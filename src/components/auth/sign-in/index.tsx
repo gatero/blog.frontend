@@ -9,31 +9,27 @@ import { SignInSchema } from './sign-in.schema';
 const { env } = process;
 
 export type TSignInProps = {
-  signInWithEmailAndPassword: (
-    formData: TSignInWithEmailAndPasswordFormData,
-  ) => void;
+  handleSubmit: (formData: TSignInWithEmailAndPasswordFormData) => void;
 };
 
 const defaultValues: TSignInProps = {
-  signInWithEmailAndPassword: () => false,
+  handleSubmit: () => false,
 };
 
 const formikOptions = (
-  signInWithEmailAndPassword: (
-    formData: TSignInWithEmailAndPasswordFormData,
-  ) => void,
+  handleSubmit: (formData: TSignInWithEmailAndPasswordFormData) => void,
 ) => ({
   initialValues: {
     email: '',
     password: '',
     rememberMe: false,
   },
-  onSubmit: signInWithEmailAndPassword,
+  onSubmit: handleSubmit,
   validationSchema: SignInSchema,
 });
 
 const SignInForm = (props: TSignInProps = defaultValues) => (
-  <Formik {...formikOptions(props.signInWithEmailAndPassword)}>
+  <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
       <Input
         icon={faEnvelope}

@@ -1,45 +1,45 @@
 import Input from '@/components/form/input';
-import { TRecoverPasswordFormData } from '@/redux/auth/auth.actions';
+import { TRecoverPasswordFormData } from '@/firebase/firebase.auth';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
 import { RecoverPasswordSchema } from './recover-password.schema';
 
 export type TRecoverPasswordProps = {
-  recoverPassword(formData: TRecoverPasswordFormData): any;
+  handleSubmit: (formData: TRecoverPasswordFormData) => any;
 };
 
-function RecoverPasswordForm(props: TRecoverPasswordProps) {
-  const formikOptions = {
-    initialValues: {
-      email: '',
-    },
-    onSubmit: props.recoverPassword,
-    validationSchema: RecoverPasswordSchema,
-  };
-
-  return (
-    <Formik {...formikOptions}>
-      <Form className="signin-form" noValidate>
-        <Input
-          id="email"
-          icon={faEnvelope}
-          type="email"
-          name="email"
-          label="Email"
-          placeholder="name@example.com"
-        />
-
-        <Button variant="primary" type="submit" className="w-100" size="lg">
-          enviar
-        </Button>
-      </Form>
-    </Formik>
-  );
-}
-
-RecoverPasswordForm.defaultProps = {
-  recoverPassword: () => false,
+const defaultValues: TRecoverPasswordProps = {
+  handleSubmit: () => false,
 };
+
+const formikOptions = (
+  handleSubmit: (formData: TRecoverPasswordFormData) => void,
+) => ({
+  initialValues: {
+    email: '',
+  },
+  onSubmit: handleSubmit,
+  validationSchema: RecoverPasswordSchema,
+});
+
+const RecoverPasswordForm = (props: TRecoverPasswordProps = defaultValues) => (
+  <Formik {...formikOptions(props.handleSubmit)}>
+    <Form className="signin-form" noValidate>
+      <Input
+        id="email"
+        icon={faEnvelope}
+        type="email"
+        name="email"
+        label="Email"
+        placeholder="name@example.com"
+      />
+
+      <Button variant="primary" type="submit" className="w-100" size="lg">
+        enviar
+      </Button>
+    </Form>
+  </Formik>
+);
 
 export default RecoverPasswordForm;

@@ -1,5 +1,5 @@
 import Select, { TSelectOption } from '@/components/form/select';
-import { TSignUpWithEmailAndPasswordFormData } from '@/redux/auth/auth.actions';
+import { TSignUpWithEmailAndPasswordFormData } from '@/firebase/firebase.auth';
 import {
   faCalendar,
   faEnvelope,
@@ -36,93 +36,93 @@ const gendersOptions: TSelectOption[] = [
 ];
 
 export type TSignUpProps = {
-  handleSubmit: (values: TSignUpWithEmailAndPasswordFormData) => void;
+  handleSubmit: (formData: TSignUpWithEmailAndPasswordFormData) => void;
 };
 
-function SignUpForm(props: TSignUpProps) {
-  const formikOptions = {
-    initialValues: {
-      name: '',
-      birthdate: '',
-      gender: '',
-      email: '',
-      password: '',
-      repassword: '',
-    },
-    onSubmit: props.handleSubmit,
-    validationSchema: SignUpSchema,
-  };
-
-  return (
-    <Formik {...formikOptions}>
-      <Form className="signin-form" noValidate>
-        <Input
-          id="name"
-          icon={faUser}
-          type="name"
-          name="name"
-          label="nombre"
-          placeholder="name"
-        />
-
-        <div className="row">
-          <div className="col-6">
-            <Input
-              id="birthdate"
-              icon={faCalendar}
-              type="date"
-              name="birthdate"
-              label="birthdate"
-              placeholder="fecha de nacimiento"
-            />
-          </div>
-          <div className="col-6">
-            <Select
-              id="gender"
-              icon={faGenderless}
-              name="gender"
-              options={gendersOptions}
-            />
-          </div>
-        </div>
-
-        <Input
-          id="email"
-          icon={faEnvelope}
-          type="email"
-          name="email"
-          label="email"
-          placeholder="name@example.com"
-        />
-
-        <Input
-          id="password"
-          icon={faKey}
-          type="password"
-          name="password"
-          label="password"
-          placeholder="contraseña"
-        />
-
-        <Input
-          id="repassword"
-          icon={faKey}
-          type="password"
-          name="repassword"
-          label="repassword"
-          placeholder="repetir contraseña"
-        />
-
-        <Button variant="primary" type="submit" className="w-100">
-          entrar
-        </Button>
-      </Form>
-    </Formik>
-  );
-}
-
-SignUpForm.defaultProps = {
+const defaultValues: TSignUpProps = {
   handleSubmit: () => true,
 };
+
+const formikOptions = (
+  handleSubmit: (formData: TSignUpWithEmailAndPasswordFormData) => void,
+) => ({
+  initialValues: {
+    name: '',
+    birthdate: '',
+    gender: '',
+    email: '',
+    password: '',
+    repassword: '',
+  },
+  onSubmit: handleSubmit,
+  validationSchema: SignUpSchema,
+});
+
+const SignUpForm = (props: TSignUpProps = defaultValues) => (
+  <Formik {...formikOptions(props.handleSubmit)}>
+    <Form className="signin-form" noValidate>
+      <Input
+        id="name"
+        icon={faUser}
+        type="name"
+        name="name"
+        label="nombre"
+        placeholder="name"
+      />
+
+      <div className="row">
+        <div className="col-6">
+          <Input
+            id="birthdate"
+            icon={faCalendar}
+            type="date"
+            name="birthdate"
+            label="birthdate"
+            placeholder="fecha de nacimiento"
+          />
+        </div>
+        <div className="col-6">
+          <Select
+            id="gender"
+            icon={faGenderless}
+            name="gender"
+            options={gendersOptions}
+          />
+        </div>
+      </div>
+
+      <Input
+        id="email"
+        icon={faEnvelope}
+        type="email"
+        name="email"
+        label="email"
+        placeholder="name@example.com"
+      />
+
+      <Input
+        id="password"
+        icon={faKey}
+        type="password"
+        name="password"
+        label="password"
+        placeholder="contraseña"
+      />
+
+      <Input
+        id="repassword"
+        icon={faKey}
+        type="password"
+        name="repassword"
+        label="repassword"
+        placeholder="repetir contraseña"
+      />
+
+      <Button variant="primary" type="submit" className="w-100">
+        entrar
+      </Button>
+    </Form>
+  </Formik>
+);
 
 export default SignUpForm;

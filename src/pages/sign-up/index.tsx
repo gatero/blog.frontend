@@ -11,8 +11,6 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const inter = Inter({ subsets: ['latin'] });
 
-type TSignUpProps = {};
-
 function SignUp() {
   const { signUpWithEmailAndPassword, signInWithSocial } = useAuth();
 

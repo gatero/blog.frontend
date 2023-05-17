@@ -54,9 +54,7 @@ export default function SignIn() {
           <Card>
             <Card.Body>
               <Card.Title as="h1">Iniciar sesión</Card.Title>
-              <SignInForm
-                signWithEmailAndPassword={handleSignInWithEmailAndPassword}
-              />
+              <SignInForm handleSubmit={handleSignInWithEmailAndPassword} />
 
               <hr />
 
