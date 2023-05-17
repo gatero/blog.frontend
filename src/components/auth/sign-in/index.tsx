@@ -1,3 +1,4 @@
+import { TSignInWithEmailAndPasswordFormData } from '@/firebase/firebase.auth';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import { Form, Formik } from 'formik';
@@ -8,53 +9,54 @@ import { SignInSchema } from './sign-in.schema';
 const { env } = process;
 
 export type TSignInProps = {
-  signWithEmailAndPassword: Function;
+  signInWithEmailAndPassword: (
+    formData: TSignInWithEmailAndPasswordFormData,
+  ) => void;
 };
 
-function SignInForm(props: any) {
-  const formikOptions = {
-    initialValues: {
-      email: '',
-      password: '',
-      rememberMe: false,
-    },
-    onSubmit: props.signWithEmailAndPassword,
-    validationSchema: SignInSchema,
-  };
-
-  console.log('aaa - env: ', env);
-
-  return (
-    <Formik {...formikOptions}>
-      <Form className="signin-form" noValidate>
-        <Input
-          id="email"
-          icon={faEnvelope}
-          type="email"
-          name="email"
-          label="Email"
-          placeholder="name@example.com"
-        />
-
-        <Input
-          id="password"
-          icon={faKey}
-          type="password"
-          name="password"
-          label="Password"
-          placeholder="password"
-        />
-
-        <Button variant="primary" type="submit" className="w-100">
-          entrar
-        </Button>
-      </Form>
-    </Formik>
-  );
-}
-
-SignInForm.defaultProps = {
-  signWithEmailAndPassword: () => false,
+const defaultValues: TSignInProps = {
+  signInWithEmailAndPassword: () => false,
 };
+
+const formikOptions = (
+  signInWithEmailAndPassword: (
+    formData: TSignInWithEmailAndPasswordFormData,
+  ) => void,
+) => ({
+  initialValues: {
+    email: '',
+    password: '',
+    rememberMe: false,
+  },
+  onSubmit: signInWithEmailAndPassword,
+  validationSchema: SignInSchema,
+});
+
+const SignInForm = (props: TSignInProps = defaultValues) => (
+  <Formik {...formikOptions(props.signInWithEmailAndPassword)}>
+    <Form className="signin-form" noValidate>
+      <Input
+        icon={faEnvelope}
+        type="email"
+        name="email"
+        label="Email"
+        placeholder="name@example.com"
+      />
+
+      <Input
+        icon={faKey}
+        type="password"
+        name="password"
+        label="Password"
+        placeholder="password"
+        autoComplete="false"
+      />
+
+      <Button variant="primary" type="submit" className="w-100">
+        entrar
+      </Button>
+    </Form>
+  </Formik>
+);
 
 export default SignInForm;

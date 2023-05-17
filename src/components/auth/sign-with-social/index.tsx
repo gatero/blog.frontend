@@ -1,13 +1,18 @@
 import { TAuthProvider, authProviders } from '@/constants/firebase';
+import { TSignInWithSocialFormData } from '@/firebase/firebase.auth';
 import { randomString } from '@/functions/string';
 import Image from 'next/image';
 import { Button } from 'react-bootstrap';
 
-type TSignInWithSocial = {
-  signInWithSocial: Function;
+type TSignInWithSocialProps = {
+  signInWithSocial: (formData: TSignInWithSocialFormData) => void;
 };
 
-function SignInWithSocial(props: TSignInWithSocial) {
+const defaultValues = {
+  signInWithSocial: () => false,
+};
+
+function SignInWithSocial(props: TSignInWithSocialProps = defaultValues) {
   return (
     <div className="sign-in-with-social">
       {authProviders.map((authProvider: TAuthProvider) => (
@@ -30,9 +35,5 @@ function SignInWithSocial(props: TSignInWithSocial) {
     </div>
   );
 }
-
-SignInWithSocial.defaultProps = {
-  signInWithSocial: () => false,
-};
 
 export default SignInWithSocial;
