@@ -37,7 +37,7 @@ const ResetPasswordForm = (
         placeholder="name@example.com"
       />
 
-      <Button variant="primary" type="submit" className="w-100" size="lg">
+      <Button variant="primary" type="submit" className="w-100">
         enviar
       </Button>
     </Form>
