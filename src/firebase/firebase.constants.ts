@@ -5,8 +5,9 @@ import {
   GoogleAuthProvider,
 } from 'firebase/auth';
 
-export const PUBLIC_ROUTES = ['/sign-in', '/sign-up', '/'];
-export const PRIVATE_ROUTES = ['/profile', '/article'];
+export const AUTH_ROUTES = ['/sign-in', '/sign-up', '/reset-password'];
+export const PROFILE_ROUTES = ['/profile', '/article'];
+export const PUBLIC_ROUTES = ['/'];
 
 export type TFirebaseConfig = {
   [key: string]: string | undefined;

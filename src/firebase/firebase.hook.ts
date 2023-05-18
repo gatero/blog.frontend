@@ -14,7 +14,7 @@ import {
   signOut,
   signUpWithEmailAndPassword,
 } from './firebase.auth';
-import { PRIVATE_ROUTES, PUBLIC_ROUTES } from './firebase.constants';
+import { PROFILE_ROUTES, AUTH_ROUTES } from './firebase.constants';
 
 export type TUseAuth = {
   authUser: TAuthUser;
@@ -35,8 +35,8 @@ export function useAuth(): TUseAuth {
 
   useEffect(() => {
     const hasActiveSession = Boolean(localStorage.getItem('hasActiveSession'));
-    const isPrivateRoute = PRIVATE_ROUTES.includes(router.route);
-    const isPublicRoute = PUBLIC_ROUTES.includes(router.route);
+    const isPrivateRoute = PROFILE_ROUTES.includes(router.route);
+    const isPublicRoute = AUTH_ROUTES.includes(router.route);
     const isHomeRoute = router.route === '/';
 
     firebase.auth.onAuthStateChanged((auth: any) => {
