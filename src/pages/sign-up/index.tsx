@@ -11,8 +11,6 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const inter = Inter({ subsets: ['latin'] });
 
-type TSignUpProps = {};
-
 function SignUp() {
   const { signUpWithEmailAndPassword, signInWithSocial } = useAuth();
 
@@ -65,7 +63,7 @@ function SignUp() {
 
               <ul className="my-3 list-unstyled text-end">
                 <li>
-                  <Link href="/recover-password">recuperar contraseña</Link>
+                  <Link href="/reset-password">recuperar contraseña</Link>
                 </li>
               </ul>
 

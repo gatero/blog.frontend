@@ -17,54 +17,49 @@ export type TSelectProps = {
   name: string;
   options: TSelectOption[];
   value: string;
-  icon: IconProp;
+  icon?: IconProp;
 };
 
-function Select(props: TSelectProps) {
-  return (
-    <div className="select mb-3">
-      <InputGroup
-        className={classNames(props.className, {
-          'flex-nowrap': props.icon || false,
-        })}
-      >
-        {props.icon && (
-          <InputGroup.Text>
-            <FontAwesomeIcon icon={props.icon} />
-          </InputGroup.Text>
-        )}
-
-        <Field id={props.id} as={Form.Select} name={props.name}>
-          <option value="" disabled hidden>
-            {props.placeholder}
-          </option>
-          {props.options.map((option: TSelectOption) => (
-            <option key={randomString()} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </Field>
-      </InputGroup>
-
-      <ErrorMessage
-        name={props.name}
-        component="div"
-        className="text-danger text-end"
-      />
-    </div>
-  );
-}
-
-Select.defaultProps = {
+const defaultValues: TSelectProps = {
   id: '',
   name: '',
   className: '',
   placeholder: 'Selecciona -',
   value: '',
-  icon: '',
   options: [],
-  onChange: () => true,
-  onFocus: () => true,
 };
+
+const Select = (props: TSelectProps = defaultValues): React.ReactElement => (
+  <div className="select mb-3">
+    <InputGroup
+      className={classNames(props.className, {
+        'flex-nowrap': props.icon || false,
+      })}
+    >
+      {props.icon && (
+        <InputGroup.Text>
+          <FontAwesomeIcon icon={props.icon} />
+        </InputGroup.Text>
+      )}
+
+      <Field id={props.id} as={Form.Select} name={props.name}>
+        <option value="" disabled hidden>
+          {props.placeholder}
+        </option>
+        {props.options.map((option: TSelectOption) => (
+          <option key={randomString()} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </Field>
+    </InputGroup>
+
+    <ErrorMessage
+      name={props.name}
+      component="div"
+      className="text-danger text-end"
+    />
+  </div>
+);
 
 export default Select;

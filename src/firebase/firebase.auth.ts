@@ -111,12 +111,12 @@ export const signUpWithEmailAndPassword = async (
   }
 };
 
-export type TRecoverPasswordFormData = {
+export type TResetPasswordFormData = {
   email: string;
 };
 
 export const sendPasswordResetEmail = async (
-  formData: TRecoverPasswordFormData,
+  formData: TResetPasswordFormData,
 ) => {
   const { email } = formData;
 

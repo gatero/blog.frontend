@@ -1,3 +1,5 @@
+'use client';
+
 import { createContext, useContext } from 'react';
 import { TUseAuth, useAuth } from './firebase.hook';
 
@@ -12,7 +14,7 @@ const AuthContext = createContext<TUseAuth>({
   signInWithEmailAndPassword: () => false,
   signUpWithEmailAndPassword: () => false,
   signInWithSocial: () => false,
-  passwordResetEmail: () => false,
+  sendPasswordResetEmail: () => false,
   signOut: () => false,
 });
 

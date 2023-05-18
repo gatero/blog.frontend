@@ -5,13 +5,8 @@ import {
   TSignInWithSocialFormData,
 } from '@/firebase/firebase.auth';
 import { useAuth } from '@/firebase/firebase.hook';
-import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-
-const inter = Inter({ subsets: ['latin'] });
-
-type TSignInProps = {};
 
 export default function SignIn() {
   const { signInWithEmailAndPassword, signInWithSocial } = useAuth();
@@ -59,15 +54,13 @@ export default function SignIn() {
           <Card>
             <Card.Body>
               <Card.Title as="h1">Iniciar sesión</Card.Title>
-              <SignInForm
-                signWithEmailAndPassword={handleSignInWithEmailAndPassword}
-              />
+              <SignInForm handleSubmit={handleSignInWithEmailAndPassword} />
 
               <hr />
 
               <ul className="my-3 list-unstyled text-end">
                 <li>
-                  <Link href="/recover-password">recuperar contraseña</Link>
+                  <Link href="/reset-password">recuperar contraseña</Link>
                 </li>
               </ul>
 
@@ -82,10 +75,4 @@ export default function SignIn() {
       </Row>
     </Container>
   );
-}
-
-export function getStaticProps() {
-  return {
-    props: {},
-  };
 }

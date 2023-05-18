@@ -1,7 +1,7 @@
-import RecoverPasswordForm from '@/components/auth/recover-password';
+import ResetPasswordForm from '@/components/auth/reset-password';
 import SignInWithSocial from '@/components/auth/sign-with-social';
 import {
-  TRecoverPasswordFormData,
+  TResetPasswordFormData,
   TSignInWithSocialFormData,
 } from '@/firebase/firebase.auth';
 import { useAuth } from '@/firebase/firebase.hook';
@@ -11,13 +11,13 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const inter = Inter({ subsets: ['latin'] });
 
-type TRecoverPasswordProps = {};
+type TResetPasswordProps = {};
 
-export default function RecoverPassword(props: TRecoverPasswordProps) {
+export default function ResetPassword(props: TResetPasswordProps) {
   const { sendPasswordResetEmail, signInWithSocial } = useAuth();
 
   // TODO: use firebase name
-  const handleRecoverPassword = (formData: TRecoverPasswordFormData) => {
+  const handleResetPassword = (formData: TResetPasswordFormData) => {
     try {
       sendPasswordResetEmail(formData);
     } catch (error) {
@@ -58,7 +58,7 @@ export default function RecoverPassword(props: TRecoverPasswordProps) {
           <Card>
             <Card.Body>
               <Card.Title as="h1">recuperar contraseña</Card.Title>
-              <RecoverPasswordForm recoverPassword={handleRecoverPassword} />
+              <ResetPasswordForm handleSubmit={handleResetPassword} />
 
               <div className="text-end my-4">
                 <Link href="/sign-in" className="text-decoration-none">
