@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 
 const inter = Inter({ subsets: ['latin'] });
 
-type THomeProps = {};
+type TLaboratoryProps = {};
 
 export function getStaticProps() {
   return {
@@ -11,14 +11,14 @@ export function getStaticProps() {
   };
 }
 
-const Home = (props: THomeProps) => (
+const Laboratory = (props: TLaboratoryProps) => (
   <Container fluid className="sign-in">
     <Row>
       <Col className="sign-in-greeting">
-        <h1>home</h1>
+        <h1>Laboratory</h1>
       </Col>
     </Row>
   </Container>
 );
 
-export default Home;
+export default Laboratory;
