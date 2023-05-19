@@ -1,5 +1,11 @@
+import Navbar from '@/components/layout/navbar';
 import { LayoutProps } from '.';
 
 export default function PublicLayout(props: LayoutProps) {
-  return <>{props.children}</>;
+  return (
+    <>
+      <Navbar />
+      {props.children}
+    </>
+  );
 }

@@ -7,7 +7,13 @@ import {
 
 export const AUTH_ROUTES = ['/sign-in', '/sign-up', '/reset-password'];
 export const PROFILE_ROUTES = ['/profile', '/article'];
-export const PUBLIC_ROUTES = ['/'];
+export const PUBLIC_ROUTES = [
+  '/',
+  '/about',
+  '/my-work',
+  '/laboratory',
+  '/blog',
+];
 
 export type TFirebaseConfig = {
   [key: string]: string | undefined;

@@ -55,10 +55,11 @@
 
 // bootstrap components
 @import 'components/list-group';
+@import 'components/navbar';
 
 // components
 @import 'globals/classes';
-@import 'fonts/config.scss';
+@import 'fonts/config';
 
 // pages
 @import 'page/index';
