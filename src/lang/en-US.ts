@@ -1,13 +1,15 @@
-import navbar from '@/lang/en/navbar.ts';
-import home from '@/lang/en/home.ts';
-import profile from '@/lang/en/profile.ts';
-import experience from '@/lang/en/experience.ts';
-import contact from '@/lang/en/contact.ts';
+import contact from '@/lang/en/contact';
+import experience from '@/lang/en/experience';
+import home from '@/lang/en/home';
+import navbar from '@/lang/en/navbar';
+import profile from '@/lang/en/profile';
 
-export default {
+const es_US = Object.freeze({
   home,
   profile,
   experience,
   contact,
   navbar,
-};
+});
+
+export default es_US;
