@@ -4,7 +4,7 @@ import home from '@/lang/en/home';
 import navbar from '@/lang/en/navbar';
 import profile from '@/lang/en/profile';
 
-const es_US = Object.freeze({
+const en_US = Object.freeze({
   home,
   profile,
   experience,
@@ -12,4 +12,4 @@ const es_US = Object.freeze({
   navbar,
 });
 
-export default es_US;
+export default en_US;
