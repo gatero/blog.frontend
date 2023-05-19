@@ -1,0 +1,19 @@
+.navbar-custom {
+  background-image: url('/navbar/menu-top-bg.jpg');
+  background-repeat: repeat;
+  max-height: 50px;
+
+  .nav-link {
+    &.dropdown-toggle {
+      min-width: 150px;
+    }
+
+    &:not(.dropdown-toggle) {
+      min-width: 132px;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+  }
+}
