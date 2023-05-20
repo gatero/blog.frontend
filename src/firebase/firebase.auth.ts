@@ -1,4 +1,5 @@
 import {
+  signOut as $signOut,
   AuthProvider,
   User,
   browserSessionPersistence,
@@ -127,4 +128,12 @@ export const sendPasswordResetEmail = async (
   }
 };
 
-export const signOut = async () => {};
+export const signOut = async () => {
+  try {
+    $signOut(firebase.auth);
+    localStorage.clear();
+    location.reload();
+  } catch (error: any) {
+    return error.code;
+  }
+};

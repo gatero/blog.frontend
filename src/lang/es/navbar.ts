@@ -1,8 +1,13 @@
 const Experience = Object.freeze({
   home: 'inicio',
+  about: 'sobre mi',
+  myWork: 'trabajo',
+  blog: 'blog',
+  laboratory: 'laboratorio',
   profile: 'perfil',
-  experience: 'experiencia',
-  contact: 'contacto',
+  signIn: 'iniciar sesión',
+  signOut: 'cerrar sesión',
+  language: 'idioma',
 });
 
 export default Experience;

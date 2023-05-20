@@ -12,7 +12,7 @@ export function getStaticProps() {
 }
 
 const Profile = (props: TSignInProps) => (
-  <Container fluid className="sign-in">
+  <Container className="sign-in">
     <Row>
       <Col className="sign-in-greeting">
         <h1>profile</h1>
