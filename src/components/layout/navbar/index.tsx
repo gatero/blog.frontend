@@ -6,6 +6,7 @@ import {
   Nav,
   NavDropdown,
 } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const NavbarAvatar = () => (
   <>
@@ -14,44 +15,57 @@ const NavbarAvatar = () => (
   </>
 );
 
-const Navbar = () => (
-  <$Navbar bg="light" expand="lg" className="navbar-custom">
-    <Container>
-      <$Navbar.Toggle aria-controls="navbarScroll" />
-      <$Navbar.Collapse id="navbarScroll">
-        <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-          <Nav.Link as={Link} href="/">
-            <Image src="/navbar/btn-home.png" alt="home" /> inicio
-          </Nav.Link>
-          <Nav.Link as={Link} href="/about">
-            <Image src="/navbar/btn-about.png" alt="about" /> about
-          </Nav.Link>
-          <Nav.Link as={Link} href="/my-work">
-            <Image src="/navbar/btn-work.png" alt="work" /> my work
-          </Nav.Link>
-          <Nav.Link as={Link} href="/laboratory">
-            <Image src="/navbar/btn-lab.png" alt="lab" /> laboratory
-          </Nav.Link>
-          <Nav.Link as={Link} href="/blog">
-            <Image src="/navbar/btn-blog.png" alt="contact" /> blog
-          </Nav.Link>
-        </Nav>
+const Navbar = () => {
+  const { t } = useTranslation();
+  return (
+    <$Navbar bg="light" expand="lg" className="navbar-custom">
+      <Container>
+        <$Navbar.Toggle aria-controls="navbarScroll" />
+        <$Navbar.Collapse id="navbarScroll">
+          <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+            <Nav.Link as={Link} href="/">
+              <Image src="/navbar/btn-home.png" alt="home" /> {t('navbar.home')}
+            </Nav.Link>
+            <Nav.Link as={Link} href="/about">
+              <Image src="/navbar/btn-about.png" alt="about" />
+              {t('navbar.about')}
+            </Nav.Link>
+            <Nav.Link as={Link} href="/my-work">
+              <Image src="/navbar/btn-work.png" alt="work" />
+              {t('navbar.myWork')}
+            </Nav.Link>
+            <Nav.Link as={Link} href="/laboratory">
+              <Image src="/navbar/btn-lab.png" alt="lab" />
+              {t('navbar.laboratory')}
+            </Nav.Link>
+            <Nav.Link as={Link} href="/blog">
+              <Image src="/navbar/btn-blog.png" alt="blog" /> {t('navbar.blog')}
+            </Nav.Link>
+          </Nav>
 
-        <div className="d-flex">
-          <NavDropdown
-            title={<NavbarAvatar />}
-            id="navbarScrollingDropdown"
-            align="end"
-          >
-            <NavDropdown.Item href="/profile">profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/sign-out">sign out</NavDropdown.Item>
-            <NavDropdown.Item href="/sign-in">sign in</NavDropdown.Item>
-          </NavDropdown>
-        </div>
-      </$Navbar.Collapse>
-    </Container>
-  </$Navbar>
-);
+          <div className="d-flex">
+            <NavDropdown
+              title={<NavbarAvatar />}
+              id="navbarScrollingDropdown"
+              align="end"
+            >
+              <NavDropdown.Item href="/profile">
+                {t('navbar.profile')}
+              </NavDropdown.Item>
+
+              <NavDropdown.Divider />
+
+              <NavDropdown.Item>{t('navbar.signOut')}</NavDropdown.Item>
+
+              <NavDropdown.Item href="/sign-in">
+                {t('navbar.signIn')}
+              </NavDropdown.Item>
+            </NavDropdown>
+          </div>
+        </$Navbar.Collapse>
+      </Container>
+    </$Navbar>
+  );
+};
 
 export default Navbar;

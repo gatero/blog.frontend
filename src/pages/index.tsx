@@ -16,7 +16,7 @@ const Home = (props: THomeProps) => {
   const { t } = useTranslation();
 
   return (
-    <Container fluid className="sign-in">
+    <Container className="sign-in">
       <Row>
         <Col className="sign-in-greeting">
           <h1>{t('home.job')}</h1>

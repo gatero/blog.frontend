@@ -12,7 +12,7 @@ export function getStaticProps() {
 }
 
 const Blog = (props: TBlogProps) => (
-  <Container fluid className="sign-in">
+  <Container className="sign-in">
     <Row>
       <Col className="sign-in-greeting">
         <h1>blog</h1>
