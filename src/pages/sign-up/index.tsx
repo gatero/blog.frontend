@@ -7,11 +7,13 @@ import {
 import { useAuth } from '@/firebase/firebase.hook';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
 const inter = Inter({ subsets: ['latin'] });
 
 function SignUp() {
+  const router = useRouter();
   const { signUpWithEmailAndPassword, signInWithSocial } = useAuth();
 
   const handleSignUpWithEmailAndPassword = (
@@ -19,6 +21,7 @@ function SignUp() {
   ) => {
     try {
       signUpWithEmailAndPassword(formData);
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
@@ -27,6 +30,7 @@ function SignUp() {
   const handleSignInWithSocial = (formData: TSignInWithSocialFormData) => {
     try {
       signInWithSocial(formData);
+      router.push('/');
     } catch (error) {
       console.log(error);
     }

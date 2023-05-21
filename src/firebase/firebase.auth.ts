@@ -132,8 +132,8 @@ export const signOut = async () => {
   try {
     $signOut(firebase.auth);
     localStorage.clear();
-    location.reload();
   } catch (error: any) {
+    console.log('aaa - error: ', error);
     return error.code;
   }
 };

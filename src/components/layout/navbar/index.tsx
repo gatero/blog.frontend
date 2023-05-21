@@ -1,3 +1,4 @@
+import { useAuth } from '@/firebase/firebase.hook';
 import Link from 'next/link';
 import {
   Navbar as $Navbar,
@@ -16,7 +17,12 @@ const NavbarAvatar = () => (
 );
 
 const Navbar = () => {
+  const { signOut } = useAuth();
   const { t } = useTranslation();
+  const hasActiveSession =
+    typeof window !== 'undefined' &&
+    Boolean(localStorage.getItem('hasActiveSession'));
+
   return (
     <$Navbar bg="light" expand="lg" className="navbar-custom">
       <Container>
@@ -49,17 +55,23 @@ const Navbar = () => {
               id="navbarScrollingDropdown"
               align="end"
             >
-              <NavDropdown.Item href="/profile">
+              <NavDropdown.Item href="/profile" as={Link}>
                 {t('navbar.profile')}
               </NavDropdown.Item>
 
               <NavDropdown.Divider />
 
-              <NavDropdown.Item>{t('navbar.signOut')}</NavDropdown.Item>
+              {hasActiveSession && (
+                <NavDropdown.Item onClick={signOut}>
+                  {t('navbar.signOut')}
+                </NavDropdown.Item>
+              )}
 
-              <NavDropdown.Item href="/sign-in">
-                {t('navbar.signIn')}
-              </NavDropdown.Item>
+              {!hasActiveSession && (
+                <NavDropdown.Item href="/sign-in" as={Link}>
+                  {t('navbar.signIn')}
+                </NavDropdown.Item>
+              )}
             </NavDropdown>
           </div>
         </$Navbar.Collapse>

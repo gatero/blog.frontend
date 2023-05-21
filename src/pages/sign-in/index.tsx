@@ -6,24 +6,42 @@ import {
 } from '@/firebase/firebase.auth';
 import { useAuth } from '@/firebase/firebase.hook';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
 export default function SignIn() {
   const { signInWithEmailAndPassword, signInWithSocial } = useAuth();
+  const router = useRouter();
 
-  const handleSignInWithEmailAndPassword = (
+  const handleSignInWithEmailAndPassword = async (
     formData: TSignInWithEmailAndPasswordFormData,
   ) => {
     try {
-      signInWithEmailAndPassword(formData);
+      await signInWithEmailAndPassword(formData);
+
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleSignInWithSocial = (formData: TSignInWithSocialFormData) => {
+  const handleSignInWithSocial = async (
+    formData: TSignInWithSocialFormData,
+  ) => {
     try {
-      signInWithSocial(formData);
+      // - INFO
+      //  when part of a promise has a popup as part
+      // of it's transaction is necessary use implicit awatt,
+      // with await, the promise only finish when the user
+      // completes the popup transaction before continue program execution
+      //
+      // this is important when you try to redirect an user after
+      // a sign in event, whiout await keyword, the program
+      // takes the popup as the end of the promise and
+      // redirects whitout finish the transaction
+      await signInWithSocial(formData);
+
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
