@@ -9,6 +9,8 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import './navbar.scss';
+
 const NavbarAvatar = () => (
   <>
     <span>Daniel</span> &nbsp;
@@ -18,10 +20,13 @@ const NavbarAvatar = () => (
 
 const Navbar = () => {
   const { signOut } = useAuth();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
   const hasActiveSession =
     typeof window !== 'undefined' &&
     Boolean(localStorage.getItem('hasActiveSession'));
+
+  const changeLanguage = (language: string) => i18n.changeLanguage(language);
 
   return (
     <$Navbar bg="light" expand="lg" className="navbar-custom">
@@ -72,6 +77,24 @@ const Navbar = () => {
                   {t('navbar.signIn')}
                 </NavDropdown.Item>
               )}
+
+              <NavDropdown.Divider />
+
+              <NavDropdown.Item as="div" className="navbar-option-language">
+                {t('navbar.language')}:
+                <button
+                  className="btn btn-link"
+                  onClick={() => changeLanguage('es')}
+                >
+                  <span className="fi fi-mx" />
+                </button>
+                <button
+                  className="btn btn-link"
+                  onClick={() => changeLanguage('en')}
+                >
+                  <span className="fi fi-us" />
+                </button>
+              </NavDropdown.Item>
             </NavDropdown>
           </div>
         </$Navbar.Collapse>

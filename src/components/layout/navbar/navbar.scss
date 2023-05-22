@@ -16,9 +16,16 @@
       }
     }
   }
+}
 
-  .dropdown,
-  .dropdown-item {
-    text-align: right;
+.navbar-option {
+  &-language {
+    &:hover {
+      background-color: transparent;
+    }
+
+    .btn {
+      padding: 5px;
+    }
   }
 }
