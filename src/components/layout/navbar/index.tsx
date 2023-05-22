@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-import '@/styles/components/navbar.scss';
+import './navbar.scss';
 
 const NavbarAvatar = () => (
   <>
@@ -82,10 +82,16 @@ const Navbar = () => {
 
               <NavDropdown.Item as="div" className="navbar-option-language">
                 {t('navbar.language')}:
-                <button className="btn btn-link">
+                <button
+                  className="btn btn-link"
+                  onClick={() => changeLanguage('es')}
+                >
                   <span className="fi fi-mx" />
                 </button>
-                <button className="btn btn-link">
+                <button
+                  className="btn btn-link"
+                  onClick={() => changeLanguage('en')}
+                >
                   <span className="fi fi-us" />
                 </button>
               </NavDropdown.Item>
