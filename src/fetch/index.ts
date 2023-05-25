@@ -18,7 +18,7 @@ export const create = async (path: string, request: any = null) => {
 
     const response = await fetch(target, options);
 
-    return response.json();
+    return response;
   } catch (error) {
     console.log('aaa - error: ', error);
   }
@@ -37,7 +37,7 @@ export const find = async (path: string, params: any) => {
 
     const response = await fetch(target, options);
 
-    return response.json();
+    return response;
   } catch (error) {
     console.log('aaa - error: ', error);
   }
@@ -57,7 +57,7 @@ export const findById = async (path: string) => {
 
     const response = await fetch(target, options);
 
-    return response.json();
+    return response;
   } catch (error) {
     console.log('aaa - error: ', error);
   }
@@ -81,7 +81,7 @@ export const updateById = async (path: string, request: any) => {
 
     const response = await fetch(target, options);
 
-    return response.json();
+    return response;
   } catch (error) {
     console.log('aaa - error: ', error);
   }
@@ -100,7 +100,7 @@ export const deleteById = async (path: string) => {
 
     const response = await fetch(target, options);
 
-    return response.json();
+    return response;
   } catch (error) {
     console.log('aaa - error: ', error);
   }
