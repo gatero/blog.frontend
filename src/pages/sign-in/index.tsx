@@ -1,5 +1,5 @@
-import SignInForm from '@/components/auth/sign-in';
-import SignInWithSocial from '@/components/auth/sign-with-social';
+import SignInForm from '@/components/formik/auth/sign-in';
+import SignInWithSocial from '@/components/formik/auth/sign-with-social';
 import {
   TSignInWithEmailAndPasswordFormData,
   TSignInWithSocialFormData,

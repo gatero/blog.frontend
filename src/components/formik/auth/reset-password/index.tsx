@@ -1,5 +1,5 @@
-import Input from '@/components/formik/auth/form/input';
-import { TResetPasswordFormData } from '@/firebase/firebase.auth';
+import Input from '@/components/formik/form/input';
+import { TResetPasswordFormData } from '@/firebase/firebase.auth.service';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
