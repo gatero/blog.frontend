@@ -51,7 +51,10 @@ export const signInWithEmailAndPassword = async (
 
     const user = firebase.auth?.currentUser as User;
     if (user && !hasActiveSession) {
+      const idToken = await user.getIdToken();
+
       localStorage.setItem('hasActiveSession', 'true');
+      localStorage.setItem('idToken', idToken);
     }
 
     return user.toJSON();
@@ -74,7 +77,10 @@ export const signInWithSocial = async (formData: TSignInWithSocialFormData) => {
 
     const user = firebase.auth?.currentUser as User;
     if (user && !hasActiveSession) {
+      const idToken = await user.getIdToken();
+
       localStorage.setItem('hasActiveSession', 'true');
+      localStorage.setItem('idToken', idToken);
     }
 
     return user.toJSON();
@@ -103,7 +109,10 @@ export const signUpWithEmailAndPassword = async (
 
     const user = firebase.auth?.currentUser as User;
     if (user && !hasActiveSession) {
+      const idToken = await user.getIdToken();
+
       localStorage.setItem('hasActiveSession', 'true');
+      localStorage.setItem('idToken', idToken);
     }
 
     await sendEmailVerification(user);

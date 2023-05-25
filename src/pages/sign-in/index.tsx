@@ -3,23 +3,20 @@ import SignInWithSocial from '@/components/auth/sign-with-social';
 import {
   TSignInWithEmailAndPasswordFormData,
   TSignInWithSocialFormData,
-} from '@/firebase/firebase.auth';
+} from '@/firebase/firebase.auth.service';
 import { useAuth } from '@/firebase/firebase.hook';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import createProfile from './sign-in.hook';
 
 export default function SignIn() {
   const { signInWithEmailAndPassword, signInWithSocial } = useAuth();
-  const router = useRouter();
 
   const handleSignInWithEmailAndPassword = async (
     formData: TSignInWithEmailAndPasswordFormData,
   ) => {
     try {
       await signInWithEmailAndPassword(formData);
-
-      router.push('/');
     } catch (error) {
       console.log(error);
     }
@@ -40,8 +37,7 @@ export default function SignIn() {
       // takes the popup as the end of the promise and
       // redirects whitout finish the transaction
       await signInWithSocial(formData);
-
-      router.push('/');
+      await createProfile();
     } catch (error) {
       console.log(error);
     }

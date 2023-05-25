@@ -6,12 +6,6 @@ const inter = Inter({ subsets: ['latin'] });
 
 type THomeProps = {};
 
-export function getStaticProps() {
-  return {
-    props: {},
-  };
-}
-
 const Home = (props: THomeProps) => {
   const { t } = useTranslation();
 

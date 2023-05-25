@@ -13,8 +13,8 @@ import {
   signInWithSocial,
   signOut,
   signUpWithEmailAndPassword,
-} from './firebase.auth';
-import { PROFILE_ROUTES, AUTH_ROUTES } from './firebase.constants';
+} from './firebase.auth.service';
+import { AUTH_ROUTES, PROFILE_ROUTES } from './firebase.constants';
 
 export type TUseAuth = {
   authUser: TAuthUser;
@@ -50,8 +50,9 @@ export function useAuth(): TUseAuth {
             router.push('/');
           }
         } else {
-          if (isPrivateRoute) {
+          if (isPrivateRoute || isHomeRoute) {
             localStorage.clear();
+
             router.push('/sign-in');
           }
         }

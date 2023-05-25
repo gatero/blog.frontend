@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import { useRouter } from 'next/router';
 import './navbar.scss';
 
 const NavbarAvatar = () => (
@@ -19,12 +20,17 @@ const NavbarAvatar = () => (
 );
 
 const Navbar = () => {
+  const router = useRouter();
   const { signOut } = useAuth();
   const { t, i18n } = useTranslation();
 
   const hasActiveSession =
     typeof window !== 'undefined' &&
     Boolean(localStorage.getItem('hasActiveSession'));
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
 
   const changeLanguage = (language: string) => i18n.changeLanguage(language);
 
@@ -67,7 +73,7 @@ const Navbar = () => {
               <NavDropdown.Divider />
 
               {hasActiveSession && (
-                <NavDropdown.Item onClick={signOut}>
+                <NavDropdown.Item onClick={handleSignOut}>
                   {t('navbar.signOut')}
                 </NavDropdown.Item>
               )}
