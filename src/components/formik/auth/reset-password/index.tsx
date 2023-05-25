@@ -1,4 +1,4 @@
-import Input from '@/components/form/input';
+import Input from '@/components/formik/auth/form/input';
 import { TResetPasswordFormData } from '@/firebase/firebase.auth';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Form, Formik } from 'formik';
