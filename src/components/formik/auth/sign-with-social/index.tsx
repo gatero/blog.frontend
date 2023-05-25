@@ -1,5 +1,8 @@
-import { TSignInWithSocialFormData } from '@/firebase/firebase.auth.service';
-import { authProviders, TAuthProvider } from '@/firebase/firebase.constants';
+import { TSignInWithSocialFormData } from '@/components/firebase/firebase.auth.service';
+import {
+  authProviders,
+  TAuthProvider,
+} from '@/components/firebase/firebase.constants';
 import { randomString } from '@/functions/string';
 import Image from 'next/image';
 import { Button } from 'react-bootstrap';

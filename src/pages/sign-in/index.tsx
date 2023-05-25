@@ -1,10 +1,10 @@
-import SignInForm from '@/components/formik/auth/sign-in';
-import SignInWithSocial from '@/components/formik/auth/sign-with-social';
 import {
   TSignInWithEmailAndPasswordFormData,
   TSignInWithSocialFormData,
-} from '@/firebase/firebase.auth.service';
-import { useAuth } from '@/firebase/firebase.hook';
+} from '@/components/firebase/firebase.auth.service';
+import { useAuth } from '@/components/firebase/firebase.hook';
+import SignInForm from '@/components/formik/auth/sign-in';
+import SignInWithSocial from '@/components/formik/auth/sign-with-social';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import createProfile from './sign-in.hook';

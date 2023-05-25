@@ -1,10 +1,10 @@
 import SignUpForm from '@/components/auth/sign-up';
 import SignInWithSocial from '@/components/auth/sign-with-social';
+import { useAuth } from '@/components/firebase/firebase.hook';
 import {
   TSignInWithSocialFormData,
   TSignUpWithEmailAndPasswordFormData,
 } from '@/firebase/firebase.auth';
-import { useAuth } from '@/firebase/firebase.hook';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

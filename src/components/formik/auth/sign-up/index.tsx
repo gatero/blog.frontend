@@ -1,5 +1,5 @@
+import { TSignUpWithEmailAndPasswordFormData } from '@/components/firebase/firebase.auth.service';
 import Select, { TSelectOption } from '@/components/formik/form/select';
-import { TSignUpWithEmailAndPasswordFormData } from '@/firebase/firebase.auth.service';
 import {
   faCalendar,
   faEnvelope,

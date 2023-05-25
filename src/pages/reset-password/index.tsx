@@ -1,10 +1,10 @@
 import ResetPasswordForm from '@/components/auth/reset-password';
 import SignInWithSocial from '@/components/auth/sign-with-social';
+import { useAuth } from '@/components/firebase/firebase.hook';
 import {
   TResetPasswordFormData,
   TSignInWithSocialFormData,
 } from '@/firebase/firebase.auth';
-import { useAuth } from '@/firebase/firebase.hook';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';

@@ -1,4 +1,4 @@
-import { useAuth } from '@/firebase/firebase.hook';
+import { useAuth } from '@/components/firebase/firebase.hook';
 import Link from 'next/link';
 import {
   Navbar as $Navbar,
