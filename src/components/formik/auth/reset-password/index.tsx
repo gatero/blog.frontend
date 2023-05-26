@@ -29,7 +29,7 @@ const ResetPasswordForm = (
   <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
       <Input
-        id="email"
+        testId="email"
         icon={faEnvelope}
         type="email"
         name="email"

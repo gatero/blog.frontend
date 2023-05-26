@@ -44,9 +44,9 @@ const Input = (props: TInputProps = defaultValues): React.ReactElement => (
       )}
 
       <Field
-        data-testid={props.name}
         id={props.id}
         className="form-control"
+        data-testid={props.testId}
         name={props.name}
         type={props.type}
         placeholder={props.placeholder}

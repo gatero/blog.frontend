@@ -32,6 +32,7 @@ const SignInForm = (props: TSignInProps = defaultValues) => (
   <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
       <Input
+        testId="email"
         icon={faEnvelope}
         type="email"
         name="email"
@@ -40,6 +41,7 @@ const SignInForm = (props: TSignInProps = defaultValues) => (
       />
 
       <Input
+        testId="password"
         icon={faKey}
         type="password"
         name="password"
