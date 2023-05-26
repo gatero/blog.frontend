@@ -1,4 +1,5 @@
 import { TSignUpWithEmailAndPasswordFormData } from '@/components/firebase/firebase.auth.service';
+import Input from '@/components/formik/form/input';
 import Select, { TSelectOption } from '@/components/formik/form/select';
 import {
   faCalendar,
@@ -8,7 +9,6 @@ import {
 import { faGenderless, faKey } from '@fortawesome/free-solid-svg-icons';
 import { Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
-import Input from '../../form/input';
 import { SignUpSchema } from './sign-up.schema';
 
 export type TSignUpFormData = {
