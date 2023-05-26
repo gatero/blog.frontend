@@ -21,7 +21,6 @@ function SignUp() {
   ) => {
     try {
       signUpWithEmailAndPassword(formData);
-      router.push('/');
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +29,6 @@ function SignUp() {
   const handleSignInWithSocial = (formData: TSignInWithSocialFormData) => {
     try {
       signInWithSocial(formData);
-      router.push('/');
     } catch (error) {
       console.log(error);
     }
@@ -49,9 +47,9 @@ function SignUp() {
             </h1>
 
             <p>
-              Si no tienes una cuenta &nbsp;
+              Si tienes una cuenta inicia sesión &nbsp;
               <Link href="/sign-up" className="text-decoration-none">
-                registrate aquí
+                aquí
               </Link>
             </p>
           </div>
