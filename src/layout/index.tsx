@@ -1,4 +1,7 @@
-import { AUTH_ROUTES, PROFILE_ROUTES } from '@/firebase/firebase.constants';
+import {
+  AUTH_ROUTES,
+  PROFILE_ROUTES,
+} from '@/components/firebase/firebase.constants';
 import { useRouter } from 'next/router';
 import AuthLayout from './auth.layout';
 import ProfileLayout from './profile.layout';

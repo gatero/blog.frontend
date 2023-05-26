@@ -11,10 +11,10 @@ export const SignUpSchema = object().shape({
   birthdate: date().required('a de nacimiento es requerida'),
   gender: string().required(),
   email: string()
-    .required('el email es requerido')
+    .required('el correo es requerido')
     .email('el correo debe ser valido'),
   password: string()
-    .required('La contraseña es requerida')
+    .required('la contraseña es requerida')
     .matches(containsUppercase, 'debe contener letras mayusculas')
     .matches(containsLowercase, 'debe contener letras minusculas')
     .matches(containsNumber, 'debe contener números')

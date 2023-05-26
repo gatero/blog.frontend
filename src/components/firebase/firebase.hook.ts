@@ -36,7 +36,7 @@ export function useAuth(): TUseAuth {
   useEffect(() => {
     const hasActiveSession = Boolean(localStorage.getItem('hasActiveSession'));
     const isPrivateRoute = PROFILE_ROUTES.includes(router.route);
-    const isPublicRoute = AUTH_ROUTES.includes(router.route);
+    const isAuthRoute = AUTH_ROUTES.includes(router.route);
     const isHomeRoute = router.route === '/';
 
     firebase.auth.onAuthStateChanged((auth: any) => {
@@ -46,11 +46,11 @@ export function useAuth(): TUseAuth {
         }
 
         if (hasActiveSession) {
-          if (!isHomeRoute && isPublicRoute) {
+          if (!isHomeRoute && isAuthRoute) {
             router.push('/');
           }
         } else {
-          if (isPrivateRoute || isHomeRoute) {
+          if (isPrivateRoute) {
             localStorage.clear();
 
             router.push('/sign-in');

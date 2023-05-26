@@ -1,5 +1,5 @@
-import Input from '@/components/form/input';
-import { TResetPasswordFormData } from '@/firebase/firebase.auth';
+import { TResetPasswordFormData } from '@/components/firebase/firebase.auth.service';
+import Input from '@/components/formik/form/input';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { Form, Formik } from 'formik';
 import { Button } from 'react-bootstrap';
@@ -29,7 +29,7 @@ const ResetPasswordForm = (
   <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
       <Input
-        id="email"
+        testId="email"
         icon={faEnvelope}
         type="email"
         name="email"

@@ -3,33 +3,34 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { ErrorMessage, Field } from 'formik';
-import { InputGroup } from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
 
-type TInputProps = {
-  id?: string;
-  name: string;
-  placeholder: string;
-  type: string;
+export type TSelectOption = {
   label: string;
-  autoComplete?: string;
+  value: string;
+};
+
+export type TSelectProps = {
+  id?: string;
+  testId?: string;
   className?: string;
-  max?: string;
-  min?: string;
+  placeholder: string;
+  name: string;
+  options: TSelectOption[];
   icon?: IconProp;
 };
 
-const defaultValues: TInputProps = Object.freeze({
+const defaultValues: TSelectProps = {
   id: randomString(),
+  testId: '',
   name: '',
-  placeholder: '',
-  type: 'text',
-  label: '',
   className: '',
-  autoComplete: '',
-});
+  placeholder: 'Selecciona -',
+  options: [],
+};
 
-const Input = (props: TInputProps = defaultValues): React.ReactElement => (
-  <div className="input mb-3">
+const Select = (props: TSelectProps = defaultValues): React.ReactElement => (
+  <div className="select mb-3">
     <InputGroup
       className={classNames(props.className, {
         'flex-nowrap': props.icon || false,
@@ -42,13 +43,20 @@ const Input = (props: TInputProps = defaultValues): React.ReactElement => (
       )}
 
       <Field
+        data-testid={props.testId}
         id={props.id}
-        className="form-control"
+        as={Form.Select}
         name={props.name}
-        type={props.type}
-        placeholder={props.placeholder}
-        autoComplete={props.autoComplete}
-      />
+      >
+        <option value="" disabled hidden>
+          {props.placeholder}
+        </option>
+        {props.options.map((option: TSelectOption) => (
+          <option key={randomString()} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </Field>
     </InputGroup>
 
     <ErrorMessage
@@ -59,4 +67,4 @@ const Input = (props: TInputProps = defaultValues): React.ReactElement => (
   </div>
 );
 
-export default Input;
+export default Select;
