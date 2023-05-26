@@ -62,7 +62,7 @@ const SignUpForm = (props: TSignUpProps = defaultValues) => (
   <Formik {...formikOptions(props.handleSubmit)}>
     <Form className="signin-form" noValidate>
       <Input
-        id="name"
+        testId="name"
         icon={faUser}
         type="name"
         name="name"
@@ -73,7 +73,7 @@ const SignUpForm = (props: TSignUpProps = defaultValues) => (
       <div className="row">
         <div className="col-6">
           <Input
-            id="birthdate"
+            testId="birthdate"
             icon={faCalendar}
             type="date"
             name="birthdate"
@@ -83,16 +83,17 @@ const SignUpForm = (props: TSignUpProps = defaultValues) => (
         </div>
         <div className="col-6">
           <Select
-            id="gender"
+            testId="gender"
             icon={faGenderless}
             name="gender"
+            placeholder="genero"
             options={gendersOptions}
           />
         </div>
       </div>
 
       <Input
-        id="email"
+        testId="email"
         icon={faEnvelope}
         type="email"
         name="email"
@@ -101,7 +102,7 @@ const SignUpForm = (props: TSignUpProps = defaultValues) => (
       />
 
       <Input
-        id="password"
+        testId="password"
         icon={faKey}
         type="password"
         name="password"
@@ -110,7 +111,7 @@ const SignUpForm = (props: TSignUpProps = defaultValues) => (
       />
 
       <Input
-        id="repassword"
+        testId="repassword"
         icon={faKey}
         type="password"
         name="repassword"

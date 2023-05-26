@@ -11,21 +11,21 @@ export type TSelectOption = {
 };
 
 export type TSelectProps = {
-  id: string;
-  className: string;
+  id?: string;
+  testId?: string;
+  className?: string;
   placeholder: string;
   name: string;
   options: TSelectOption[];
-  value: string;
   icon?: IconProp;
 };
 
 const defaultValues: TSelectProps = {
-  id: '',
+  id: randomString(),
+  testId: '',
   name: '',
   className: '',
   placeholder: 'Selecciona -',
-  value: '',
   options: [],
 };
 
@@ -42,7 +42,12 @@ const Select = (props: TSelectProps = defaultValues): React.ReactElement => (
         </InputGroup.Text>
       )}
 
-      <Field id={props.id} as={Form.Select} name={props.name}>
+      <Field
+        data-testid={props.testId}
+        id={props.id}
+        as={Form.Select}
+        name={props.name}
+      >
         <option value="" disabled hidden>
           {props.placeholder}
         </option>

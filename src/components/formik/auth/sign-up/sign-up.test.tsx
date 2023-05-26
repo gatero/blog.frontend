@@ -7,11 +7,11 @@ describe('SignInForm', () => {
       test('Displays error message when email is empty', async () => {
         render(<SignUpForm handleSubmit={() => false} />);
 
-        const emailInput = screen.getByLabelText('Email');
+        const emailInput = screen.getByTestId('email');
         fireEvent.change(emailInput, { target: { value: '' } });
         fireEvent.blur(emailInput);
 
-        const errorMessage = await screen.findByText('El email es requerido');
+        const errorMessage = await screen.findByText('el correo es requerido');
 
         expect(errorMessage).toBeInTheDocument();
       });
@@ -19,7 +19,7 @@ describe('SignInForm', () => {
       test('Displays error message when email is invalid', async () => {
         render(<SignUpForm handleSubmit={() => false} />);
 
-        const emailInput = screen.getByLabelText('Email');
+        const emailInput = screen.getByTestId('email');
         fireEvent.change(emailInput, { target: { value: 'invalidemail' } });
         fireEvent.blur(emailInput);
 
@@ -37,12 +37,12 @@ describe('SignInForm', () => {
       test('Displays error message when password is empty', async () => {
         render(<SignUpForm handleSubmit={() => false} />);
 
-        const passwordInput = screen.getByLabelText('Password');
+        const passwordInput = screen.getByTestId('password');
         fireEvent.change(passwordInput, { target: { value: '' } });
         fireEvent.blur(passwordInput);
 
         const errorMessage = await screen.findByText(
-          'La contraseña es requerida',
+          'la contraseña es requerida',
         );
 
         expect(errorMessage).toBeInTheDocument();
