@@ -14,7 +14,7 @@ import type { AppProps } from 'next/app';
 // Styles
 import AuthProvider from '@/components/firebase/firebase.context';
 import i18n from '@/lang/i18n';
-import useLayout from './layout';
+import useLayout from '../layout';
 
 import '@/styles/main.scss';
 

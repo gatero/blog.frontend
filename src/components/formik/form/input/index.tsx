@@ -7,6 +7,7 @@ import { InputGroup } from 'react-bootstrap';
 
 type TInputProps = {
   id?: string;
+  testId?: string;
   name: string;
   placeholder: string;
   type: string;
@@ -20,6 +21,7 @@ type TInputProps = {
 
 const defaultValues: TInputProps = Object.freeze({
   id: randomString(),
+  testId: randomString(),
   name: '',
   placeholder: '',
   type: 'text',
@@ -42,6 +44,7 @@ const Input = (props: TInputProps = defaultValues): React.ReactElement => (
       )}
 
       <Field
+        data-testid={props.name}
         id={props.id}
         className="form-control"
         name={props.name}

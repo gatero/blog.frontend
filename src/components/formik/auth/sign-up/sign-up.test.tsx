@@ -5,7 +5,7 @@ describe('SignInForm', () => {
   describe('[EMAIL_INPUT]', () => {
     describe('ERRORS', () => {
       test('Displays error message when email is empty', async () => {
-        render(<SignUpForm />);
+        render(<SignUpForm handleSubmit={() => false} />);
 
         const emailInput = screen.getByLabelText('Email');
         fireEvent.change(emailInput, { target: { value: '' } });
@@ -17,7 +17,7 @@ describe('SignInForm', () => {
       });
 
       test('Displays error message when email is invalid', async () => {
-        render(<SignUpForm />);
+        render(<SignUpForm handleSubmit={() => false} />);
 
         const emailInput = screen.getByLabelText('Email');
         fireEvent.change(emailInput, { target: { value: 'invalidemail' } });
@@ -35,7 +35,7 @@ describe('SignInForm', () => {
   describe('[PASSWORD_INPUT]', () => {
     describe('ERRORS', () => {
       test('Displays error message when password is empty', async () => {
-        render(<SignUpForm />);
+        render(<SignUpForm handleSubmit={() => false} />);
 
         const passwordInput = screen.getByLabelText('Password');
         fireEvent.change(passwordInput, { target: { value: '' } });
