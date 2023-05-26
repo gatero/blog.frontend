@@ -48,7 +48,7 @@ function SignUp() {
 
             <p>
               Si tienes una cuenta inicia sesión &nbsp;
-              <Link href="/sign-up" className="text-decoration-none">
+              <Link href="/sign-in" className="text-decoration-none">
                 aquí
               </Link>
             </p>
