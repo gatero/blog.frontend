@@ -8,8 +8,8 @@ import { date, object, ref, string } from 'yup';
 
 export const SignUpSchema = object().shape({
   name: string().required('el nombre es requerido'),
-  birthdate: date().required('a de nacimiento es requerida'),
-  gender: string().required(),
+  birthdate: date().required('la fecha de nacimiento es requerida'),
+  gender: string().required('selecciona un genero'),
   email: string()
     .required('el correo es requerido')
     .email('el correo debe ser valido'),
