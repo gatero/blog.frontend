@@ -7,9 +7,9 @@ describe('SignInForm', () => {
       test('Displays error message when email is empty', async () => {
         render(<ResetPasswordForm handleSubmit={() => false} />);
 
-        const emailInput = screen.getByTestId('email');
-        fireEvent.change(emailInput, { target: { value: '' } });
-        fireEvent.blur(emailInput);
+        const input = screen.getByTestId('email');
+        fireEvent.change(input, { target: { value: '' } });
+        fireEvent.blur(input);
 
         const errorMessage = await screen.findByText(
           'el correo electronico es requerido',
@@ -21,9 +21,9 @@ describe('SignInForm', () => {
       test('Displays error message when email is invalid', async () => {
         render(<ResetPasswordForm handleSubmit={() => false} />);
 
-        const emailInput = screen.getByTestId('email');
-        fireEvent.change(emailInput, { target: { value: 'invalidemail' } });
-        fireEvent.blur(emailInput);
+        const input = screen.getByTestId('email');
+        fireEvent.change(input, { target: { value: 'invalid' } });
+        fireEvent.blur(input);
 
         const errorMessage = await screen.findByText(
           'el correo electronico debe ser valido',

@@ -60,7 +60,7 @@ const formikOptions = (
 
 const SignUpForm = (props: TSignUpProps = defaultValues) => (
   <Formik {...formikOptions(props.handleSubmit)}>
-    <Form className="signin-form" noValidate>
+    <Form className="sign-in-form" noValidate>
       <Input
         testId="name"
         icon={faUser}
