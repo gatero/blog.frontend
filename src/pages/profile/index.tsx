@@ -1,3 +1,4 @@
+import ProfileUpdateForm from '@/components/formik/profile/profile-update-form';
 import { Inter } from 'next/font/google';
 import { Col, Container, Row } from 'react-bootstrap';
 
@@ -16,6 +17,7 @@ const Profile = (props: TSignInProps) => (
     <Row>
       <Col className="sign-in-greeting">
         <h1>profile</h1>
+        <ProfileUpdateForm handleSubmit={() => false} />
       </Col>
     </Row>
   </Container>
