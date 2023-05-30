@@ -29,9 +29,12 @@ const Profile = (props: TProfileProps) => (
           </ListGroup.Item>
         </ListGroup>
       </Col>
+
       <Col md={9}>
-        <h1>profile</h1>
-        <ProfileUpdateForm handleSubmit={() => false} />
+        <div className="profile-information">
+          <h1>profile</h1>
+          <ProfileUpdateForm handleSubmit={() => false} />
+        </div>
       </Col>
     </Row>
   </Container>

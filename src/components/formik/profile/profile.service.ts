@@ -1,41 +1,41 @@
-import * as api from '@/fetch';
+import api from '@/fetch';
 
-const profileService = {
-  async create() {
+const ProfileService = Object.freeze({
+  async create(request: any) {
     try {
-      await api.create('/profile');
+      await api.create('/profile', request);
     } catch (error) {
       console.log(error);
     }
   },
-  async find() {
+  async find(params: any) {
     try {
-      await api.find('/profile', {});
+      await api.find('/profile', params);
     } catch (error) {
       console.log(error);
     }
   },
-  async findById() {
+  async findById(id: string) {
     try {
-      await api.findById('/profile');
+      await api.findById(`/profile${id}`);
     } catch (error) {
       console.log(error);
     }
   },
-  async updateById() {
+  async updateById(id: string, request: any) {
     try {
-      await api.updateById('/profile', {});
+      await api.updateById(`/profile${id}`, request);
     } catch (error) {
       console.log(error);
     }
   },
-  async deleteById() {
+  async deleteById(id: string) {
     try {
-      await api.deleteById('/profile');
+      await api.deleteById(`/profile${id}`);
     } catch (error) {
       console.log(error);
     }
   },
-};
+});
 
-export default profileService;
+export default ProfileService;
