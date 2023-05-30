@@ -1,6 +1,6 @@
 import * as api from '@/fetch';
 
-const profile = {
+const profileService = {
   async create() {
     try {
       await api.create('/profile');
@@ -38,4 +38,4 @@ const profile = {
   },
 };
 
-export default profile;
+export default profileService;

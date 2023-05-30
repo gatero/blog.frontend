@@ -1,9 +1,5 @@
-// Flag icons
-import 'flag-icons/css/flag-icons.min.css';
-
 // Fontawesome
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 import { I18nextProvider } from 'react-i18next';
 
 config.autoAddCss = false;
