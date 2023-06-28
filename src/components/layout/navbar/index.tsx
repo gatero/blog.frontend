@@ -1,4 +1,4 @@
-import { useAuth } from '@/firebase/firebase.hook';
+import { useAuth } from '@/components/firebase/firebase.hook';
 import Link from 'next/link';
 import {
   Navbar as $Navbar,
@@ -30,6 +30,8 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     await signOut();
+
+    location.href = '/sign-in';
   };
 
   const changeLanguage = (language: string) => i18n.changeLanguage(language);

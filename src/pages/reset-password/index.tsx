@@ -1,10 +1,10 @@
-import ResetPasswordForm from '@/components/auth/reset-password';
-import SignInWithSocial from '@/components/auth/sign-with-social';
 import {
   TResetPasswordFormData,
   TSignInWithSocialFormData,
-} from '@/firebase/firebase.auth';
-import { useAuth } from '@/firebase/firebase.hook';
+} from '@/components/firebase/firebase.auth.service';
+import { useAuth } from '@/components/firebase/firebase.hook';
+import ResetPasswordForm from '@/components/formik/auth/reset-password';
+import SignInWithSocial from '@/components/formik/auth/sign-with-social';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';
@@ -44,13 +44,6 @@ export default function ResetPassword(props: TResetPasswordProps) {
               the
               <b>world</b>
             </h1>
-
-            <p>
-              Si no tienes una cuenta &nbsp;
-              <Link href="/sign-up" className="text-decoration-none">
-                registrate aquí
-              </Link>
-            </p>
           </div>
         </Col>
 

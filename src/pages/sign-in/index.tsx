@@ -1,13 +1,13 @@
-import SignInForm from '@/components/auth/sign-in';
-import SignInWithSocial from '@/components/auth/sign-with-social';
 import {
   TSignInWithEmailAndPasswordFormData,
   TSignInWithSocialFormData,
-} from '@/firebase/firebase.auth.service';
-import { useAuth } from '@/firebase/firebase.hook';
+} from '@/components/firebase/firebase.auth.service';
+import { useAuth } from '@/components/firebase/firebase.hook';
+import SignInForm from '@/components/formik/auth/sign-in';
+import SignInWithSocial from '@/components/formik/auth/sign-with-social';
+import ProfileService from '@/components/formik/profile/profile.service';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import createProfile from './sign-in.hook';
 
 export default function SignIn() {
   const { signInWithEmailAndPassword, signInWithSocial } = useAuth();
@@ -37,7 +37,7 @@ export default function SignIn() {
       // takes the popup as the end of the promise and
       // redirects whitout finish the transaction
       await signInWithSocial(formData);
-      await createProfile();
+      await ProfileService.create();
     } catch (error) {
       console.log(error);
     }
