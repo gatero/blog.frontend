@@ -5,7 +5,7 @@ import {
 import { useAuth } from '@/components/firebase/firebase.hook';
 import SignInForm from '@/components/formik/auth/sign-in';
 import SignInWithSocial from '@/components/formik/auth/sign-with-social';
-import profileService from '@/components/formik/profile/profile.service';
+import ProfileService from '@/components/formik/profile/profile.service';
 import Link from 'next/link';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
@@ -37,7 +37,7 @@ export default function SignIn() {
       // takes the popup as the end of the promise and
       // redirects whitout finish the transaction
       await signInWithSocial(formData);
-      await profileService.create();
+      await ProfileService.create();
     } catch (error) {
       console.log(error);
     }

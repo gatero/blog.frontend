@@ -5,6 +5,7 @@ import {
 import { useAuth } from '@/components/firebase/firebase.hook';
 import SignUpForm from '@/components/formik/auth/sign-up';
 import SignInWithSocial from '@/components/formik/auth/sign-with-social';
+import ProfileService from '@/components/formik/profile/profile.service';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -16,19 +17,23 @@ function SignUp() {
   const router = useRouter();
   const { signUpWithEmailAndPassword, signInWithSocial } = useAuth();
 
-  const handleSignUpWithEmailAndPassword = (
+  const handleSignUpWithEmailAndPassword = async (
     formData: TSignUpWithEmailAndPasswordFormData,
   ) => {
     try {
-      signUpWithEmailAndPassword(formData);
+      await signUpWithEmailAndPassword(formData);
+      await ProfileService.create(formData);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleSignInWithSocial = (formData: TSignInWithSocialFormData) => {
+  const handleSignInWithSocial = async (
+    formData: TSignInWithSocialFormData,
+  ) => {
     try {
-      signInWithSocial(formData);
+      await signInWithSocial(formData);
+      await ProfileService.create();
     } catch (error) {
       console.log(error);
     }

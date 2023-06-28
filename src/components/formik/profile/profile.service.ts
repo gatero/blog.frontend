@@ -1,14 +1,14 @@
 import api from '@/fetch';
 
 const ProfileService = Object.freeze({
-  async create(request: any) {
+  async create(request?: any) {
     try {
       await api.create('/profile', request);
     } catch (error) {
       console.log(error);
     }
   },
-  async find(params: any) {
+  async find(params?: any) {
     try {
       await api.find('/profile', params);
     } catch (error) {

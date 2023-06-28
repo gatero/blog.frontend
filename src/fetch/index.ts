@@ -14,7 +14,8 @@ const api = Object.freeze({
       };
 
       if (request) {
-        options.body = request;
+        console.log('aaa - request: ', request);
+        options.body = JSON.stringify(request);
       }
 
       const response = await fetch(target, options);
